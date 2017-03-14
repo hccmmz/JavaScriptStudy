@@ -8,8 +8,8 @@
 
   <h3>污染城市列表</h3>
   <ul id="aqi-list"> 
-   	<li>第一名：福州（样例），10</li>
-    <li>第二名：福州（样例），10</li>
+   <!--	<li>第一名：福州（样例），10</li>
+    <li>第二名：福州（样例），10</li>-->
   </ul>
 
 <script type="text/javascript">
@@ -22,6 +22,7 @@ var aqiData = [
   ["成都", 90],
   ["西安", 100]
 ];
+	//就是冒泡排序
 function compare(value1){
 	for(var j=0;j<value1.length-1;j++){
 		for(var i=j+1;i<value1.length;i++){
@@ -34,6 +35,10 @@ function compare(value1){
 	}
 }
 (function () {	
+/*在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中	
+  */
 	var list="";
 	var arr=["第一名","第二名","第三名","第四名","第五名","第六名"];
 	compare(aqiData);
@@ -45,10 +50,7 @@ function compare(value1){
 	}
 	document.getElementById("aqi-list").innerHTML=list;
 
-  /*在注释下方编写代码
-  遍历读取aqiData中各个城市的数据
-  将空气质量指数大于60的城市显示到aqi-list的列表中	
-  */
+ 
 
 })();
 
