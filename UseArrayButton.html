@@ -35,7 +35,7 @@
  * 返回一个数组，格式见函数中示例
  */
 function getData() {
- /* var data=new Array(8);
+ var data=new Array(8);
   var ulData=document.getElementById("source");
   var liData=ulData.getElementsByTagName("li");
   var bData=ulData.getElementsByTagName("b");
@@ -44,20 +44,7 @@ function getData() {
     data[i][0]=liData[i].innerHtML.substring(0,2);
     data[i][1]=bData[i].innerHtML;
   }
-  alert(data[3]);*/
- var data=new Array(8);
- var ulData=document.getElementById("source");
- var liData=ulData.getElementsByTagName("li");
- var bData=ulData.getElementsByTagName("b");
- for(i=0;i<data.length;i++){
-  data[i]=new Array(2)
-  //alert(liData[i].innerHTML.substring(0,2));
-   
-  data[i][0]=liData[i].innerHTML.substring(0,2);
-  data[i][1]=bData[i].innerHTML;
-  alert(data[0]);
- }
-  alert(data[2][1]);
+
   /*
   data = [
     ["北京", 90],
@@ -76,6 +63,7 @@ function getData() {
  */
 function sortAqiData(data) {
   data.sort(function(x,y){return (x[1]-y[1]);});
+  return data;
 }
 
 /**
@@ -84,7 +72,13 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
-
+ // <li>第二名：北京空气质量：<b>90</b></li>
+  var newdata=new Array();
+  var number=["一"，"二"，"三"，"四"，"五"，"六"，"七"，"八"];
+  for(i=0;i<data.length;i++){
+  newdata="<li>"+"第"+number[i] +"名"+data[i][0]+"空气质量："+"<b>"+data[i][1]+"</b>"+"</li>";
+  }
+  document.getElementById("resort").innerHTML=newdata;;
 }
 
 function btnHandle() {
@@ -96,7 +90,7 @@ function btnHandle() {
 function init() {
 
   // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-  document.getElementById("ure").onclick=btnHandle();
+  document.getElementById("sort-btn").onclick=btnHandle();
 
 }
 
